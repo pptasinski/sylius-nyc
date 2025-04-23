@@ -15,6 +15,7 @@ sylius_product:
         product:
             classes:
                 model: App\Entity\Product\Product
+                interface: App\Entity\Product\ProductInterface
 
 sylius_twig_hooks:
     hooks:

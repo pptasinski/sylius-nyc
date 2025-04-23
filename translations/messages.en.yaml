@@ -2,3 +2,5 @@ sylius:
     form:
         product:
             is_on_sale: Is on sale
+    ui:
+        is_on_sale: Is on sale

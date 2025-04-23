@@ -32,3 +32,14 @@ sylius_twig_hooks:
         'sylius_shop.base#javascripts':
             app_javascripts:
                 template: 'shop/javascripts.html.twig'
+
+sylius_grid:
+    grids:
+        sylius_admin_product:
+            fields:
+                isOnSale:
+                    type: twig
+                    label: sylius.ui.is_on_sale
+                    position: 200
+                    options:
+                        template: "@SyliusAdmin/shared/grid/field/boolean.html.twig"

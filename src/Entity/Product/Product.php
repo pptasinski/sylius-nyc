@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity\Product;
 
+use ApiPlatform\Metadata\ApiProperty;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\Product as BaseProduct;
 
@@ -12,6 +13,7 @@ use Sylius\Component\Core\Model\Product as BaseProduct;
 class Product extends BaseProduct implements ProductInterface
 {
     #[ORM\Column(name: 'is_on_sale', type: 'boolean', options: ['default' => false])]
+    #[ApiProperty(readable: true)]
     protected bool $isOnSale = false;
 
     public function isOnSale(): bool

@@ -4,3 +4,8 @@ sylius:
             is_on_sale: Is on sale
     ui:
         is_on_sale: Is on sale
+    menu:
+        admin:
+            main:
+                catalog:
+                    terms: Terms

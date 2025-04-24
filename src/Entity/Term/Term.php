@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Entity\Term;
 
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
 use App\Component\Admin\Term\Grid\TermGrid;
 use Doctrine\ORM\Mapping as ORM;
 use Sylius\Resource\Metadata\AsResource;
@@ -12,9 +14,12 @@ use Sylius\Resource\Metadata\Create;
 use Sylius\Resource\Metadata\Delete;
 use Sylius\Resource\Metadata\Index;
 use Sylius\Resource\Metadata\Update;
+use Symfony\Component\Serializer\Attribute\Groups;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'sylius_term')]
+#[ApiResource]
+#[GetCollection(normalizationContext: ['groups' => 'sylius:shop:term:index'])]
 #[AsResource(
     section: 'admin',
     templatesDir: '@SyliusAdmin/shared/crud',
@@ -35,9 +40,11 @@ final class Term implements TermInterface
     protected ?int $id = null;
 
     #[ORM\Column(type: 'string', nullable: true)]
+    #[Groups(['sylius:shop:term:index'])]
     protected ?string $code = null;
 
     #[ORM\Column(type: 'string', nullable: true)]
+    #[Groups(['sylius:shop:term:index'])]
     protected ?string $body = null;
 
     public function getId(): ?int

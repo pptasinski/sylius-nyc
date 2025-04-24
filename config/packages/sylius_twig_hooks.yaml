@@ -4,3 +4,7 @@ sylius_twig_hooks:
             is_on_sale:
                 template: 'admin/product/form/sections/general/is_on_sale.html.twig'
                 priority: 400
+        'sylius_shop.product.show.content.info.summary':
+            is_on_sale:
+                template: 'shop/product/show/content/info/summary/is_on_sale.html.twig'
+                priority: 400

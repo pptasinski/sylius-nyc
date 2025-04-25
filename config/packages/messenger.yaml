@@ -4,14 +4,13 @@ framework:
         # failure_transport: failed
 
         transports:
-            # https://symfony.com/doc/current/messenger.html#transport-configuration
-            # async: '%env(MESSENGER_TRANSPORT_DSN)%'
-            # failed: 'doctrine://default?queue_name=failed'
-            # sync: 'sync://'
+            doctrine:
+                dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+                options:
+                    table_name: messenger_messages
 
         routing:
-            # Route your messages to the transports
-            # 'App\Message\YourMessage': async
+            App\Component\Admin\ProductReview\Message\ProductReviewNotification: doctrine
 
 # when@test:
 #    framework:
